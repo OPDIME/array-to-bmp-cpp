@@ -1,4 +1,4 @@
-# arrayToBMP
+# `arrayToBMP`
 A simple library to save color-arrays represented as 24bit-integer-arrays as BMPs in C++, 
 easy to use and easy to include since its only one header file!
 
@@ -9,7 +9,7 @@ just like HTML rgb values. E.g.: 0xFFFFFF for white, or 0xFF0000 for red.
 If you have trouble converting integers to RGB24 values, use the getColor function, which returns an rgb24_t value, 
 with given R, G and B values.
 
-# CODE
+# `CODE` EXAMPLES
 The following code will show how simple it is to save an BMP-file:
 ```cpp
 #include "arrayToBMP.h"
