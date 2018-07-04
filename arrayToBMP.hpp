@@ -2,16 +2,16 @@
 #include <fstream>
 #include <string>
 
-/**
+/***************************************************************
 *		arrayToBamp.hpp
 *		Purpose: Save an RGB24 array to a BMP file, 
 *		with inbuild file-checking and copy-management!
 *		
-*
+*		@license Licensed under the no-license-license.
 *		@author Marius Zander
-*		@version 1.0 04/07/18
+*		@version 1.1 04/07/18
 *		
-**/
+***************************************************************/
 
 
 /* typedefs */
