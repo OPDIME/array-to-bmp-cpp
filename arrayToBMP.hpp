@@ -22,6 +22,7 @@ class arrayToBMP
 {
 private:
 
+	/* CONSTS check https://en.wikipedia.org/wiki/BMP_file_format for more info.*/
 	/*COLOR TABLE*/
 	static const uint32_t COLORTABLE_ENTRIES = 0x00;
 
@@ -85,6 +86,13 @@ private:
 		return paddingBytes;
 	}
 
+	/*
+	* writeToByteArray writes size_t's little-endian encoded to the array.
+	*
+	* @param data the data to write.
+	* @param at the position where to start writing.
+	* @param destArray the array to write in.
+	*/
 	static inline void writeToByteArray(size_t data, size_t at, byte_t* destArray)
 	{
 		size_t length = bytesNeeded(data);
@@ -100,6 +108,14 @@ private:
 	}
 
 	/* Functions for writing the BMP file */
+	
+	/*
+	* writeFileHeader writes the BMPFILEHEADER into the destination array,
+	* using the writeToByteArray function.
+	*
+	* @param fileSize the size of the whole BMP file
+	* @param destArray the array to write in.
+	*/
 	static inline void writeFileHeader(byte_t* destArray,size_t fileSize)
 	{
 
@@ -109,6 +125,15 @@ private:
 		writeToByteArray(BF_OFFBITS,	0x0A, destArray);		// bfOffbits
 
 	}
+
+	/*
+	* writeInfoHeader writes the BMPINFOHEADER into the destination array,
+	* using the writeToByteArray function.
+	*
+	* @param width  the width of the image in pixels.
+	* @param height the height of the image in pixels.
+	* @param destArray the array to write in.
+	*/
 	static inline void writeInfoHeader(byte_t* destArray,size_t width, size_t height)
 	{
 
@@ -127,6 +152,15 @@ private:
 		writeToByteArray(BI_CLRIMPORTANT,	0x32, destArray);	// biClrImportant 
 	
 	}
+
+	/*
+	* writeImageData writes the IMAGEDATA into the destination array.
+	*
+	* @param width  the width of the image in pixels.
+	* @param height the height of the image in pixels.
+	* @param colorArray the array of colors to write. Basicly the image pixels.
+	* @param destArray the array to write in.
+	*/
 	static inline void writeImageData(byte_t* destArray, rgb24_t* colorArray, size_t width, size_t height)
 	{
 		const size_t imageSizeWithoutPadding = (width * height * 3);
@@ -161,12 +195,28 @@ private:
 
 	/* Functions for writing files byte-wise */
 
+	/*
+	* fileExists returns true if a file exits, false if not.
+	*
+	* @param filename the path to the file
+	* @return true if the file exists, false if it doesnt.
+	*/
 	static inline bool fileExists(const char *filename)
 	{
 		std::ifstream ifile(filename);
 		return (bool)ifile;
 	}
 
+	
+	/*
+	* correctFileName checks if the ".bmp" fileextention is in the filename, 
+	* if not, adds the ".bmp" ending. If the file already exists, inserts a number
+	* before the ".bmp" extention. 
+	: E.g.: foo -> foo.bmp, foo.bmp -> foo1.bmp, foo -> foo2.bmp
+	*
+	* @param filename the path to the file,
+	* @return the corrected path.
+	*/
 	static std::string correctFileName(std::string fileName)
 	{
 		size_t lastIndex = fileName.length() - 1;
@@ -187,6 +237,13 @@ private:
 		return toCheck;
 	}
 
+	/*
+	* writeOut writes the given array bytewise to the given path.
+	*
+	* @param toWrite the array to write.
+	* @param length the length of the array.
+	* @param path the path to save the file to. It gets corrected by correctFileName.
+	*/
 	static inline void writeOut(byte_t* toWrite,size_t length,const char* path)
 	{
 		std::string correctedPath = correctFileName(path);
@@ -200,6 +257,14 @@ private:
 	}
 public:
 	
+	/*
+	* getColor gets a rgb24 value given the single R, G, and B values.
+	*
+	* @param R the red value, one byte in size 0x00 - 0xFF
+	* @param G the green value, one byte in size 0x00 - 0xFF
+	* @param B the blue value, one byte in size 0x00 - 0xFF
+	* @return the R, G, and B values merged into one single rgb24_t value.
+	*/
 	static inline rgb24_t getColor(byte_t R, byte_t G, byte_t B)
 	{
 		rgb24_t ret = 0x000000;
@@ -210,6 +275,15 @@ public:
 		return ret;
 	}
 
+	/*
+	* ArrayToBMP writes a BMP file to the destinated path.
+	*
+	* @param width  the width of the image in pixels.
+	* @param height the height of the image in pixels.
+	* @param colorArray the array of colors to write. Basicly the image pixels.
+	* @param path the destinated path, will be corrected by correctFileName-
+	* @return errorcode, currently always zero because Marius is lazy.
+	*/
 	static inline int ArrayToBMP(rgb24_t* colorArray, size_t width, size_t height, const char* path)
 	{
 		const size_t imageSizeWithoutPadding = (width * height * 3);
@@ -224,7 +298,6 @@ public:
 		{
 			bitmap[i] = 0x00;
 		}
-
 
 		writeFileHeader(bitmap, fileSize);
 		writeInfoHeader(bitmap, width, height);
