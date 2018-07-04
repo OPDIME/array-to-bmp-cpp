@@ -28,9 +28,12 @@ int main()
 	rgb24_t cadetBlue = 0x5F9EA0;
 
 	// Our color-array we want to save. Every value is a pixel in the BMP
+	// Top left pixel, will be the top left pixel in the BMP. In this example "crimson"
+	// will be to the left, "magenta" to the right, "coral" to the top, in between, and 
+	// "cadetBlue" at the bottom in between "crimson" and "magenta".
 	rgb24_t pixels[] = { crimson, coral,	 magenta,
-			     crimson, cadetBlue, magenta,
-			     crimson, magenta,   magenta };
+			     crimson, magenta,   magenta,
+			     crimson, cadetBlue, magenta };
 
 	size_t pixelsWidth = 3; 	// Width of our pixel-array.
 	size_t pixelsHeight = 3;	// Height of our pixel-array.
