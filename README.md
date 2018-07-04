@@ -10,12 +10,12 @@ If you have trouble converting integers to RGB24 values, use the getColor functi
 with given R, G and B values.
 
 # TYPES
-* byte_t  - One byte, 0x00 - 0xFF.
-* rgb24_t - Three bytes, 0x000000 - 0xFFFFFF.
+* `byte_t`  - One byte, 0x00 - 0xFF.
+* `rgb24_t` - Three bytes, 0x000000 - 0xFFFFFF.
 
 # FUNCTIOS
-* ArrayToBMP - ArrayToBMP writes a BMP file to the destinated path.
-* getColor   - getColor returns an rgb24 value given the R, G, and B values.
+* `ArrayToBMP` - ArrayToBMP writes a BMP file to the destinated path.
+* `getColor`   - getColor returns an rgb24 value given the R, G, and B values.
 	
 
 # CREDITS 
