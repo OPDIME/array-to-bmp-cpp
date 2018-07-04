@@ -19,17 +19,21 @@ int main()
 	// The path we will save to. Would also work with "bar" instead of "bar.bmp".
 	const char* path = ".\\foo\\bar.bmp";	
 
+	// Get some colors with the getColor function.
+	rgb24_t red = arrayToBMP::getColor(255, 0, 0);
+	rgb24_t magenta = arrayToBMP::getColor(255, 0, 255);
+
 	// Our color-array we want to save. Every value is a pixel in the BMP
-	rgb24_t pixels[] = { 	0xAABBCC, 0xAABBCC, 0xAABBCC,
-				0xAABBCC, 0xFFFFFF, 0xAABBCC,
-				0xAABBCC, 0xAABBCC, 0xAABBCC };
-				
+	rgb24_t pixels[] = { 	red, 0x000000, magenta,
+				red, 0xFFFFFF, magenta,
+				red, 0x000000, magenta };	
+
 	size_t pixelsWidth = 3; 	// Width of our pixel-array.
 	size_t pixelsHeight = 3;	// Height of our pixel-array.
 	
 	// Save the array as BMP.
 	arrayToBMP::ArrayToBMP(pixels, pixelsWidth, pixelsHeight, path);
-	
+
 	return 0;
 }
 
