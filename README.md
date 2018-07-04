@@ -10,7 +10,7 @@ If you have trouble converting integers to RGB24 values, use the getColor functi
 with given R, G and B values.
 
 # TYPES
-* byte_t  - One byte, 0x00 - 0xFF basicly an unsigned char.
+* byte_t  - One byte, 0x00 - 0xFF.
 * rgb24_t - Three bytes, 0x000000 - 0xFFFFFF.
 
 # FUNCTIOS
