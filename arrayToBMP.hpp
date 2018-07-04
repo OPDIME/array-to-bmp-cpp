@@ -294,6 +294,7 @@ public:
 		const size_t infoHeaderSize = 40;
 		const size_t fileSize = infoHeaderSize + fileHeaderSize + BI_IMAGESIZE;
 		byte_t* bitmap = new byte_t[fileSize];
+		//TODO maybe use memset
 		for (size_t i = 0; i < fileSize; i++)
 		{
 			bitmap[i] = 0x00;
