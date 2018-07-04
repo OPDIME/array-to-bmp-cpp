@@ -3,8 +3,8 @@
 #include <string>
 
 /***************************************************************
-*		arrayToBamp.hpp
-*		Purpose: Save an RGB24 array to a BMP file, 
+*		arrayToBmp.hpp
+*		Purpose: Save an RGB24 array to an uncompressed BMP file, 
 *		with inbuild file-checking and copy-management!
 *		
 *		@license Licensed under the no-license-license.
@@ -13,6 +13,13 @@
 *		
 ***************************************************************/
 
+/* ======================== HOW TO USE =======================*/
+/*
+* Copy and paste arrayToBmp.hpp into your project, and include it with #include "arrayToBmp.hpp".
+* Then use the arrayToBMP function to write your BMP! Easy as that. If you have trouble converting integers to
+* RGB24 values, use the getColor function, which returns an rgb24_t value, with given R, G and B values.
+*
+*/
 
 /* typedefs */
 typedef unsigned char byte_t;
