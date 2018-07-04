@@ -4,7 +4,8 @@
 
 /**
 *		arrayToBamp.hpp
-*		Purpose: Calculate the total of 6 checks
+*		Purpose: Save an RGB24 array to a BMP file, 
+*		with inbuild file-checking and copy-management!
 *		
 *
 *		@author Marius Zander
