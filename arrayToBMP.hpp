@@ -13,13 +13,15 @@
 *		
 ***************************************************************/
 
-/* ======================== HOW TO USE =======================*/
-/*
-* Copy and paste arrayToBmp.hpp into your project, and include it with #include "arrayToBmp.hpp".
-* Then use the arrayToBMP function to write your BMP! Easy as that. If you have trouble converting integers to
-* RGB24 values, use the getColor function, which returns an rgb24_t value, with given R, G and B values.
+/* ======================== HOW TO USE =======================*
 *
-*/
+* Copy and paste arrayToBmp.hpp into your project, and include it with #include "arrayToBmp.hpp".
+* Then use the arrayToBMP function to write your BMP! Easy as that. The Color values are basicly integers, 
+* just like HTML rgb values. E.g.: 0xFFFFFF for white, or 0xFF0000 for red.
+* If you have trouble converting integers to RGB24 values, use the getColor function, which returns an rgb24_t value, 
+* with given R, G and B values.
+*
+* ============================================================/
 
 /* typedefs */
 typedef unsigned char byte_t;
