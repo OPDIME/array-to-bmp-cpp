@@ -9,6 +9,32 @@ just like HTML rgb values. E.g.: 0xFFFFFF for white, or 0xFF0000 for red.
 If you have trouble converting integers to RGB24 values, use the getColor function, which returns an rgb24_t value, 
 with given R, G and B values.
 
+# CODE
+The following code will show how simple it is to save an BMP-file:
+```cpp
+#include "arrayToBMP.h"
+
+int main()
+{
+	// The path we will save to. Would also work with "bar" instead of "bar.bmp".
+	const char* path = ".\\foo\\bar.bmp";	
+
+	// Our color-array we want to save. Every value is a pixel in the BMP
+	rgb24_t pixels[] = { 	0xAABBCC, 0xAABBCC, 0xAABBCC,
+				0xAABBCC, 0xFFFFFF, 0xAABBCC,
+				0xAABBCC, 0xAABBCC, 0xAABBCC };
+				
+	size_t pixelsWidth = 3; 	// Width of our pixel-array.
+	size_t pixelsHeight = 3;	// Height of our pixel-array.
+	
+	// Save the array as BMP.
+	arrayToBMP::ArrayToBMP(pixels, pixelsWidth, pixelsHeight, path);
+	
+	return 0;
+}
+
+```
+
 # TYPES
 * `byte_t`  - One byte, 0x00 - 0xFF.
 * `rgb24_t` - Three bytes, 0x000000 - 0xFFFFFF.
@@ -16,7 +42,6 @@ with given R, G and B values.
 # FUNCTIOS
 * `ArrayToBMP` - ArrayToBMP writes a BMP file to the destinated path.
 * `getColor`   - getColor returns an rgb24 value given the R, G, and B values.
-	
 
 # CREDITS 
 * Author: Marius Zander
