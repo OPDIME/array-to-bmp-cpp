@@ -3,7 +3,7 @@
 #include <string>
 
 /**
-*		arrayToBamp.h
+*		arrayToBamp.hpp
 *		Purpose: Calculate the total of 6 checks
 *		
 *
