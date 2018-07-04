@@ -19,12 +19,9 @@ with given R, G and B values.
 	
 
 # CREDITS 
-arrayToBmp.hpp
-purpose: Save an RGB24 array to an uncompressed BMP file, 
-with inbuild file-checking and copy-management!
-llicense: Licensed under the no-license-license.
-author: Marius Zander
-version: 1.1 04/07/18
+* Author: Marius Zander
+* License: Licensed under the no-license-license.
+
 
 
 
