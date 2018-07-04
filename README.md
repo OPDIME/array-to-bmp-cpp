@@ -29,7 +29,7 @@ int main()
 
 	// Our color-array we want to save. Every value is a pixel in the BMP.
 	// The top left pixel, will be the top left pixel in the BMP. In this example "crimson"
-	// will be to the left, "magenta" to the right, "coral" to the top, in between, and 
+	// will be to the left, "magenta" to the right, "coral" to the top in between, and 
 	// "cadetBlue" at the bottom in between "crimson" and "magenta".
 	rgb24_t pixels[] = { crimson, coral,	 magenta,
 			     crimson, magenta,   magenta,
@@ -47,7 +47,7 @@ int main()
 
 # TYPES
 * `byte_t`  - One byte, 0x00 - 0xFF.
-* `rgb24_t` - Three bytes, 0x000000 - 0xFFFFFF.
+* `rgb24_t` - Three bytes, 0x000000 - 0xFFFFFF. 
 
 # FUNCTIOS
 * `ArrayToBMP` - ArrayToBMP writes a BMP file to the destinated path.
